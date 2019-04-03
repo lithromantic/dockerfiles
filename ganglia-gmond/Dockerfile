@@ -18,4 +18,4 @@ EXPOSE 8649
 /usr/local/bin/gmond
 
 CMD envsubst < gmond.conf > gmond.conf && \
-    ["/usr/local/bin/gmond"]
+    /usr/local/bin/gmond start
