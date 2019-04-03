@@ -13,10 +13,11 @@ VOLUME ["/etc/ganglia/conf.d"]
 COPY docker-entrypoint.sh  /entrypoint.sh
 COPY gmond_demo.conf            /etc/ganglia/
 
+RUN chmod 777 /entrypoint.sh &&\
+    envsubst < gmond_demo.conf > gmond.conf
+
 # Define default command.
 ENTRYPOINT ["/entrypoint.sh"]
 
-CMD envsubst < gmond_demo.conf > gmond.conf && \
-    chmod 777 /entrypoint.sh && \
-    ["gmond"]
+CMD  ["gmond"]
 
