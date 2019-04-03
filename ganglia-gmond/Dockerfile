@@ -11,7 +11,7 @@ VOLUME ["/etc/ganglia/conf.d"]
 
 # for convenience
 COPY docker-entrypoint.sh  /entrypoint.sh
-COPY gmond.conf            /etc/ganglia/
+COPY gmond_demo.conf            /etc/ganglia/
 
 # Define default command.
 ENTRYPOINT ["/entrypoint.sh"]
