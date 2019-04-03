@@ -16,5 +16,6 @@ VOLUME ["/etc/ganglia/conf.d"]
 EXPOSE 8649
 
 
-CMD envsubst < gmond.conf > gmond.conf && \
+CMD envsubst < gmond_demo.conf > gmond.conf && \
     /usr/local/bin/gmond
+
