@@ -17,5 +17,6 @@ COPY gmond_demo.conf            /etc/ganglia/
 ENTRYPOINT ["/entrypoint.sh"]
 
 CMD envsubst < gmond_demo.conf > gmond.conf && \
+    chmod 777 /entrypoint.sh && \
     ["gmond"]
 
