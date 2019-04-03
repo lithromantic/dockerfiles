@@ -8,7 +8,7 @@ ENV HOST=127.0.0.1   \
 ADD  rootfs.tar.gz  /
 #RUN  apk --no-cache add ganglia-gmond
 
-#COPY gmond.conf   /etc/ganglia/
+COPY gmond.conf   /etc/ganglia/
 
 VOLUME ["/etc/ganglia/conf.d"]
 
