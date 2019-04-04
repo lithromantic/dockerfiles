@@ -10,7 +10,7 @@ EXPOSE 8649
 VOLUME ["/etc/ganglia/conf.d"]
 
 # for convenience
-COPY docker-entrypoint.sh  /entrypoint.sh
+ADD docker-entrypoint.sh  /entrypoint.sh
 COPY gmond_demo.conf            /etc/ganglia/
 
 RUN chmod 777 /entrypoint.sh &&\
