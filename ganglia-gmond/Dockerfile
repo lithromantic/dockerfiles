@@ -2,19 +2,16 @@ FROM williamyeh/dash
 
 ADD  rootfs.tar.gz  /
 
-ENV HOST=127.0.0.1   \
-    NAME=unspecified
-
 EXPOSE 8649
 
 VOLUME ["/etc/ganglia/conf.d"]
 
 # for convenience
-ADD docker-entrypoint.sh  /entrypoint.sh
-COPY gmond_demo.conf            /etc/ganglia/
+COPY docker-entrypoint.sh  /entrypoint.sh
+COPY gmond_demo.conf            /etc/ganglia/gmond.conf
 
-RUN chmod 777 /entrypoint.sh &&\
-    envsubst < gmond_demo.conf > gmond.conf
+#RUN chmod -R 777 /entrypoint.sh &&\
+#RUN  envsubst < gmond_demo.conf > gmond.conf
 
 # Define default command.
 ENTRYPOINT ["/entrypoint.sh"]
