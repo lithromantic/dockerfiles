@@ -18,7 +18,7 @@ EXPOSE 8649
 #ENTRYPOINT ["/entrypoint.sh"]
 
 #FROM gcr.io/distroless/base
-COPY --from=build gmond /
+COPY --from=build /usr/sbin /
 CMD ["/app"]
 
 #CMD envsubst < gmond_demo.conf > gmond.conf && \
