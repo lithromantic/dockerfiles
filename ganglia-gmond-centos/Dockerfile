@@ -15,5 +15,9 @@ EXPOSE 8649
 
 #ENTRYPOINT ["/entrypoint.sh"]
 
+FROM gcr.io/distroless/cc
+COPY --from=build /usr/sbin/ganglia /
+CMD ["/app"]
+
 #CMD envsubst < gmond_demo.conf > gmond.conf && \
 CMD ["/entrypoint.sh"]
