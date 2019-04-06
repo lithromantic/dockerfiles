@@ -1,4 +1,4 @@
-FROM centos:6
+FROM centos:6 as build
 
 ENV HOST=127.0.0.1   \
     NAME=unspecified
@@ -18,7 +18,7 @@ EXPOSE 8649
 #ENTRYPOINT ["/entrypoint.sh"]
 
 #FROM gcr.io/distroless/base
-COPY --from=build /usr/sbin /
+COPY --from=build /usr/sbin/gmond /
 CMD ["/app"]
 
 #CMD envsubst < gmond_demo.conf > gmond.conf && \
