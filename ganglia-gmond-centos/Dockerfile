@@ -15,7 +15,7 @@ RUN rpm -Uvh https://dl.fedoraproject.org/pub/epel/epel-release-latest-6.noarch.
 
 #ENTRYPOINT ["/entrypoint.sh"]
 
-#FROM gcr.io/distroless/base
+FROM gcr.io/distroless/base
 COPY --from=build /usr/sbin/gmond /
 
 COPY docker-entrypoint.sh  /entrypoint.sh
