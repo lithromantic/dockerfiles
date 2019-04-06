@@ -20,6 +20,8 @@ COPY --from=build /usr/sbin/gmond /
 
 COPY docker-entrypoint.sh  /entrypoint.sh
 
+ENTRYPOINT ["/entrypoint.sh"]
+
 EXPOSE 8649
 
 #CMD envsubst < gmond_demo.conf > gmond.conf && \
