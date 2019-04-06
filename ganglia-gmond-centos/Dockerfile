@@ -18,7 +18,8 @@ RUN rpm -Uvh https://dl.fedoraproject.org/pub/epel/epel-release-latest-6.noarch.
 FROM gcr.io/distroless/base
 COPY --from=build /usr/sbin/gmond /
 
-COPY docker-entrypoint.sh  /entrypoint.sh
+WORKDIR /
+COPY --from=build /entrypoint.sh  /
 
 EXPOSE 8649
 
